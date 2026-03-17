@@ -11,4 +11,3 @@ else if (tri === ang && tri !== le || ang === le && ang !== le  || tri === le &&
 else {
   document.querySelector('#triangle').innerHTML = 'The triangle is a scalene'
 }
-
