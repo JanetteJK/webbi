@@ -1,0 +1,38 @@
+html {
+  font-size: 16px;
+}
+body {
+  font-family: Consolas;
+  background-color: antiquewhite;
+}
+
+input {
+  padding: 0.25rem;
+  border-style: solid;
+  border-block-color: rosybrown;
+  border-radius: 6px;
+}
+
+button[type="submit"] { /* tämä jos on useampi nappi joihin haluaa eri tyylit */
+  font-family: Consolas;
+  background-color: rosybrown;
+  border-radius: 6px;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-gap: 10px;
+
+}
+
+@media (max-width: 400px) {
+  body {
+    background-color: cornflowerblue;
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+
