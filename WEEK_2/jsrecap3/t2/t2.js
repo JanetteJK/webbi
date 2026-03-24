@@ -28,3 +28,12 @@ const todoList = [
 ];
 
 // add your code here
+for (const task of todoList) {
+  const list = document.querySelector('ul');
+  const items = `<li>
+<input type='checkbox' id="todo-${task.id}"checked>
+<label for="todo-${task.id}">${task.task}</label>
+</li>`
+  list.insertAdjacentHTML('afterbegin', items);
+}
+
