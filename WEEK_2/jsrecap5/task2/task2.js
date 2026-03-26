@@ -1,5 +1,5 @@
 const regresKey = "reqres_1465d69002424aeea166973020222890";
-const regresUrl = "https://reqres.in/api/users?page=2";
+const regresUrl = "https://reqres.in/api/users";
 
 const callApi = async () => {
   const data = await fetch(regresUrl, {
@@ -9,9 +9,6 @@ const callApi = async () => {
       "x-api-key": regresKey,
     },
   });
-
-  console.log(data);
-
   const result = await data.json();
 
   console.log("Data", data);
