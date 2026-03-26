@@ -795,9 +795,19 @@ for (const restaurant of restaurants) {
     modal.showModal();
     // tee modalin sisältö
     const nameH3 = document.createElement('h3');
+    const add = document.createElement('h4');
+    const post = document.createElement('h4');
+    const city = document.createElement('h4');
+    const num = document.createElement('h4');
+    const comp = document.createElement('h4');
     nameH3.innerText = restaurant.name;
+    add.innerText = restaurant.address;
+    post.innerText = restaurant.postalCode;
+    city.innerText = restaurant.city;
+    num.innerText = restaurant.phone;
+    comp.innerText = restaurant.company;
 
-    modal.append(nameH3);
+    modal.append(nameH3, add, post, city, num, comp);
   });
 
   // nimisolu
