@@ -66,7 +66,7 @@ for (const restaurant of restaurants) {
 
     const dMenu = await getDailyMenu(restaurant._id, 'fi');
     const menu = menuHTML(dMenu.courses);
-    modal.insertAdjacentHTML('beforeend', menu)
+    modal.insertAdjacentHTML('beforeend', restaurant.address + ", " + restaurant.city + menu)
   });
 
   // nimisolu

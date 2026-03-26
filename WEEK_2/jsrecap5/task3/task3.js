@@ -1,12 +1,9 @@
 const regresKey = "reqres_1465d69002424aeea166973020222890";
-const regresUrl = "https://reqres.in/api/users?page=2";
+const regresUrl = "https://reqres.in/api/unknown/23";
 
 const callApi = async () => {
-  try {
-
+  try{
   const data = await fetch(regresUrl, {
-    method: "post",
-    body: JSON.stringify({name: "Janette"}),
     headers: {
       "x-api-key": regresKey,
     },
@@ -18,12 +15,13 @@ const callApi = async () => {
 
   console.log("Data", data);
   console.log("result", result);
-  }
-  catch (error){
-    console.log("Ei toimi", error)
+  }catch (error){
+    console.log("ei toimi" + error.message);
   }
 
+
 };
+
 console.log("Logging before calling");
 callApi();
 console.log("Logging after call")
