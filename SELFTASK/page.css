@@ -1,0 +1,55 @@
+html {
+  background-color: rgba(182, 129, 146, 0.7);
+  font-family: Consolas;
+
+
+}
+#h_img {
+ max-width: 100%;
+  height: auto;
+}
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#hd {
+  padding: 5px;
+  font-size: 30px;
+}
+
+.topnav {
+  max-width: 100%;
+  height: auto;
+  font-size: 20px;
+  padding: 2px;
+}
+.topnav a {
+  float: left;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  background-color: #d8abab;
+}
+.topnav a:hover {
+  background-color: rosybrown;
+}
+#map {
+  height: 50dvh;
+  width: 100dvw;
+  border: rosybrown;
+  border-style: solid;
+  border-width: thick;
+}
+form {
+  padding: 14px 16px;
+  float: right;
+}
+form input {
+  border-radius: 3px;
+}
+button {
+  font-family: Consolas;
+  font-size: 15px;
+  border-radius: 3px;
+}
