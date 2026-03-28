@@ -781,11 +781,12 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 for (const restaurant of restaurants){
 var marker = L.marker([restaurant.location.coordinates[1],restaurant.location.coordinates[0]]);
 marker.addTo(map);
+marker.bindPopup(document.querySelector('#name').innerHTML = restaurant.name + ", " + restaurant.address + ", " + restaurant.postalCode)
 }
 
-function addInfo(restaurant){
-  document.querySelector('#name').innerHTML = restaurant.name;
-  document.querySelector('#address').innerHTML = restaurant.address + ", " + restaurant.postalCode;
+function addInfo(n, a){
+  document.querySelector('#name').innerHTML = n.name;
+  document.querySelector('#address').innerHTML = a.address;
 }
 
-marker.on('click', addInfo(restaurant))
+marker.onclick(addInfo(marker.name,marker.address))
