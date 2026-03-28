@@ -32,6 +32,7 @@ const haePaivanMenu = async (id, lang) => {
     a.name.toUpperCase() > b.name.toUpperCase() ? 1 : -1
   );
 
+  //vain sodexo ravintoloiden hakua varten filtteröity lista
   const filterBy = 'Sodexo';
   var sodexot = restaurants.filter(restaurant => restaurant.company.toLowerCase().indexOf(filterBy.toLowerCase()) > -1);
   console.log(sodexot)
