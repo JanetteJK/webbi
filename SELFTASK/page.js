@@ -1,8 +1,21 @@
 'use strict';
 
-//leaflet thing
-var map = L.map('map').setView([60.188, 24.8], 13);
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  maxZoom: 19,
-  attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map);
+// toggle menu
+const navLinks = document.getElementById("nav-links")
+
+function openMenu(){
+  navLinks.style.right = "0";
+}
+function closeMenu(){
+  navLinks.style.right = "-200px"
+}
+
+// navigation links
+const homeBtn  = document.querySelector('#home');
+const resBtn = document.querySelector('#restaurants');
+const accBtn = document.querySelector('#account');
+const loginBtn = document.querySelector('#login');
+const box = document.getElementById('box')
+
+// page loading
+

@@ -1,37 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" name="viewport" content="with=device-width, initial-scale=1.0">
   <title>Restaurant app</title>
   <script src="page.js" defer></script>
   <link rel="stylesheet" href="page.css">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-        crossorigin=""/>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-          crossorigin=""></script>
-</head>
-<body>
-<img id="h_img" src="https://img.freepik.com/free-photo/barbecue-grilled-beef-steak-meat-with-asparagus-tomato-top-view_2829-16876.jpg?semt=ais_hybrid&w=740&q=80" height="200" width="1300" alt="Temporary pic">
-<div id="hd" class="center">
-<header>The name of the page</header>
-</div>
-<div class="topnav">
-  <a >Home</a>
-  <a >Restaurants</a>
-  <a >Create account</a>
-  <a >About</a>
-  <form>
-    <label for="name">Username</label>
-    <input type="text" id="name" name="name"/>
-    <label for="password">Password</label>
-    <input type="password" id="password" name="password"/>
-    <button type="submit">Login</button>
-  </form>
-</div>
-<div id="map">
 
-</div>
+</head>
+
+<body>
+  <section class="header">
+    <nav>
+      <a href="page.html"><img src="images/logo.png" alt="broccoli logo"></a>
+      <div class="nav-links" id="nav-links">
+        <a class="close-menu" onclick="closeMenu()">CLOSE</a>
+        <ul>
+          <li><a id="home">HOME</a></li>
+          <li><a id="restaurants">RESTAURANTS</a></li>
+          <li><a id="account">CREATE AN ACCOUNT</a></li>
+          <li><a id="login">LOGIN</a></li>
+        </ul>
+      </div>
+      <a class="menu" onclick="openMenu()">MENU</a>
+    </nav>
+    <div class="text-box" id="box">
+      <h1>Restaurant finding app</h1>
+      <p>
+        Finding student restaurants has never been easier than with The App tm <br> Worlds best restaurant finding app for me made by me
+      </p>
+      <a class="btn" href="">Quick find restaurants</a>
+    </div>
+  </section>
 </body>
 </html>

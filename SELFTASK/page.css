@@ -1,55 +1,122 @@
-html {
-  background-color: rgba(182, 129, 146, 0.7);
-  font-family: Consolas;
-
-
+*{
+  margin: 0;
+  padding: 0;
+  font-family: "monospace";
 }
-#h_img {
- max-width: 100%;
-  height: auto;
+
+.header{
+  min-height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url("images/background.jpg");
+  background-position: center;
+  background-size: cover;
+  position: relative;
 }
-.center {
+nav{
   display: flex;
-  justify-content: center;
+  padding: 2% 6%;
+  justify-content: space-between;
   align-items: center;
 }
-#hd {
-  padding: 5px;
-  font-size: 30px;
+nav img{
+  width: 100px;
 }
-
-.topnav {
-  max-width: 100%;
-  height: auto;
-  font-size: 20px;
-  padding: 2px;
+.nav-links{
+  flex: 1;
+  text-align: right;
 }
-.topnav a {
-  float: left;
-  text-align: center;
-  padding: 14px 16px;
+.nav-links ul li{
+  list-style: none;
+  padding: 2px 12px;
+  display: inline-block;
+  position: relative;
+}
+.nav-links ul li a{
+  color: white;
   text-decoration: none;
-  background-color: #d8abab;
+  font-size: 13px;
 }
-.topnav a:hover {
-  background-color: rosybrown;
+.nav-links ul li::after{
+  content: ' ';
+  width: 0%;
+  height: 2px;
+  background: white;
+  display: block;
+  margin: auto;
+  transition: 0.5s;
 }
-#map {
-  height: 50dvh;
-  width: 100dvw;
-  border: rosybrown;
-  border-style: solid;
-  border-width: thick;
+.nav-links ul li:hover::after{
+  width: 100%;
 }
-form {
-  padding: 14px 16px;
-  float: right;
+.text-box{
+  width: 90%;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  text-align: center;
 }
-form input {
-  border-radius: 3px;
+.text-box h1{
+  font-size: 50px;
 }
-button {
-  font-family: Consolas;
-  font-size: 15px;
-  border-radius: 3px;
+.text-box p{
+  margin: 10px 0 40px;
+  font-size: 20px;
+}
+.btn{
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  border: 1px solid white;
+  padding: 12px 34px;
+  background: transparent;
+  position: relative;
+  cursor: pointer;
+}
+.menu {
+  display: none;
+}
+.close-menu{
+  display: none;
+}
+@media (max-width: 700px) {
+  .text-box h1{
+    font-size: 20px;
+  }
+  .text-box p{
+    margin: 10px 0 40px;
+    font-size: 12px;
+  }
+  .nav-links ul li{
+    display: block;
+  }
+  .nav-links{
+    position: absolute;
+    background: black;
+    height: 100vh;
+    width: 200px;
+    top: 0;
+    right: -200px;
+    text-align: left;
+    z-index: 2;
+    transition: 1s;
+  }
+  .nav-links ul{
+    padding: 30px;
+  }
+  .menu{
+    display: block;
+    color: white;
+    margin: 10px;
+    font-size: 12px;
+    cursor: pointer;
+  }
+  nav .close-menu{
+    display: block;
+    color: white;
+    margin: 10px;
+    font-size: 12px;
+    cursor: pointer;
+  }
 }
