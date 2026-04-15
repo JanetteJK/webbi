@@ -10,12 +10,4 @@ function closeMenu(){
   navLinks.style.right = "-200px"
 }
 
-// navigation links
-const homeBtn  = document.querySelector('#home');
-const resBtn = document.querySelector('#restaurants');
-const accBtn = document.querySelector('#account');
-const loginBtn = document.querySelector('#login');
-const box = document.getElementById('box')
-
-// page loading
 
