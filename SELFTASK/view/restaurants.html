@@ -3,15 +3,16 @@
 <head>
   <meta charset="UTF-8" name="viewport" content="with=device-width, initial-scale=1.0">
   <title>Restaurant app</title>
-  <script src="page.js" defer></script>
-  <link rel="stylesheet" href="page.css">
+  <script src="../fetchData.js" defer></script>
+  <script src="../restaurants.js" defer></script>
+  <link rel="stylesheet" href="../page.css">
 
 </head>
 
 <body>
 <section class="header">
   <nav>
-    <a href="page.html"><img src="images/logo.png" alt="broccoli logo"></a>
+    <a href="page.html"><img src="../images/logo.png" alt="broccoli logo"></a>
     <div class="nav-links" id="nav-links">
       <a class="close-menu" onclick="closeMenu()">CLOSE</a>
       <ul>
@@ -23,12 +24,18 @@
     </div>
     <a class="menu" onclick="openMenu()">MENU</a>
   </nav>
-  <div class="text-box" id="box">
-    <h1>acccc</h1>
-    <p>
-      Finding student restaurants has never been easier than with The App tm <br> Worlds best restaurant finding app for me made by me
-    </p>
-    <a class="btn" href="">Quick find restaurants</a>
+  <div class="tableContainer" id="box">
+    <h2 class="tableHeading">Restaurants</h2>
+    <table id="restaurantTable">
+      <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>City</th>
+      </tr>
+    </table>
+    <dialog id="modal">
+
+    </dialog>
   </div>
 </section>
 </body>
