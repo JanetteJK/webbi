@@ -22,7 +22,7 @@ const getRestaurants = async () => {
     console.log(error);
   }
 }
-
+//today's menu
 const getDailyMenu = async (id,lang) => {
   try {
     return await fetchData(apiUrl + `/restaurants/daily/${id}/${lang}`)
@@ -31,6 +31,16 @@ const getDailyMenu = async (id,lang) => {
     console.log(error)
   }
 };
+
+//week's menu
+const getWeeklyMenu = async (id,lang) => {
+  try {
+    return await fetchData(apiUrl + `/restaurants/weekly/${id}/${lang}`)
+  }
+  catch (error){
+    console.log(error)
+  }
+}
 
 const menuHTML = (courses) => {
   let html = '';
@@ -85,3 +95,5 @@ const generateMenu = async () => {
   }
 }
 generateMenu()
+
+
