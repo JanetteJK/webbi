@@ -1,5 +1,4 @@
 'use strict'
-
 // toggle menu
 const navLinks = document.getElementById("nav-links")
 
@@ -26,3 +25,13 @@ const getRestaurants = async () => {
     console.log(error);
   }
 }
+
+const generateMarkers = async () => {
+  const restaurants = await getRestaurants();
+  for (const restaurant of restaurants) {
+    var marker = L.marker([restaurant.location.coordinates[1], restaurant.location.coordinates[0]]);
+    marker.addTo(map);
+    marker.bindPopup(document.querySelector('#name').innerHTML = restaurant.name + ", " + restaurant.address + ", " + restaurant.postalCode)
+  }
+}
+generateMarkers()
