@@ -24,11 +24,21 @@
     <a class="menu" onclick="openMenu()">MENU</a>
   </nav>
   <div class="text-box" id="box">
-    <h1>acccc</h1>
-    <p>
-      Finding student restaurants has never been easier than with The App tm <br> Worlds best restaurant finding app for me made by me
-    </p>
-    <a class="btn" href="">Quick find restaurants</a>
+    <h1>Create a new account</h1>
+    <form method="post">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" />
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password">
+      <label>
+        <input type="checkbox" id="terms" name="terms" required/>
+        I agree to the terms and conditions
+      </label>
+      <br>
+      <button type="submit">Register</button>
+
+    </form>
+
   </div>
 </section>
 </body>

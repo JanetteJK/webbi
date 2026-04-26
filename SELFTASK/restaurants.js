@@ -32,18 +32,10 @@ const getDailyMenu = async (id,lang) => {
   }
 };
 
-//week's menu
-const getWeeklyMenu = async (id,lang) => {
-  try {
-    return await fetchData(apiUrl + `/restaurants/weekly/${id}/${lang}`)
-  }
-  catch (error){
-    console.log(error)
-  }
-}
-
-const menuHTML = (courses) => {
+const menuHTML = (courses, restaurantId) => {
+  let id = restaurantId;
   let html = '';
+  html += `<button onclick="">Show weekly</button>`
   for (const course of courses) {
     html += `
     <article class="course">
@@ -53,8 +45,44 @@ const menuHTML = (courses) => {
     </article>
     `;
   }
+  html += `
+    <br>
+    <button onclick="modal.close(modal)">Close</button>`
   return html;
 }
+
+//week's menu
+const getWeeklyMenu = async (id,lang) => {
+  try {
+    const data = await fetchData(apiUrl + `/restaurants/weekly/${id}/${lang}`)
+    return data.days.map((obj) => {
+      return {
+        day: obj.date,
+        courses: obj.courses || [],
+      };
+    })
+  }
+  catch (error){
+    console.log(error)
+  }
+}
+
+const weeklyHTML = (days, courses) => {
+  let html = '';
+  for (const day of days) {
+  html += `
+    <div class="menu">
+    <label>${day.date}</label>
+    `
+    for (const c of courses) {
+    html += `
+    <p>${c.name || '-'}</p>
+    <p>${c.diets || '-'}</p>
+    </div>
+    `
+    }
+} return html;
+  }
 
 const generateMenu = async () => {
   const restaurants = await getRestaurants();
@@ -79,8 +107,11 @@ const generateMenu = async () => {
       modal.append(nameH3);
 
       const dMenu = await getDailyMenu(restaurant._id, 'fi');
-      const menu = menuHTML(dMenu.courses);
-      modal.insertAdjacentHTML('beforeend', restaurant.address + ', ' + restaurant.city + menu)
+      const dailyMenu = menuHTML(dMenu.courses, restaurant._id);
+      const wMenu = await getWeeklyMenu(restaurant._id,'fi')
+      const weeklyMenu = weeklyHTML(wMenu.day, wMenu.courses)
+      modal.insertAdjacentHTML('beforeend', restaurant.address + ', ' + restaurant.city + dailyMenu + weeklyMenu)
+      console.log(getWeeklyMenu(restaurant._id, 'fi'))
     });
 
     const nameTd = document.createElement('td');
@@ -95,5 +126,6 @@ const generateMenu = async () => {
   }
 }
 generateMenu()
+
 
 
