@@ -32,8 +32,7 @@ const getDailyMenu = async (id,lang) => {
   }
 };
 
-const menuHTML = (courses, restaurantId) => {
-  let id = restaurantId;
+const menuHTML = (courses, menu) => {
   let html = '';
   html += `<button onclick="">Show weekly</button>`
   for (const course of courses) {
@@ -55,33 +54,41 @@ const menuHTML = (courses, restaurantId) => {
 const getWeeklyMenu = async (id,lang) => {
   try {
     const data = await fetchData(apiUrl + `/restaurants/weekly/${id}/${lang}`)
-    return data.days.map((obj) => {
-      return {
-        day: obj.date,
-        courses: obj.courses || [],
-      };
-    })
+    return data;
   }
   catch (error){
     console.log(error)
   }
 }
 
-const weeklyHTML = (days, courses) => {
+const weeklyHTML = (data) => {
   let html = '';
-  for (const day of days) {
-  html += `
-    <div class="menu">
-    <label>${day.date}</label>
-    `
-    for (const c of courses) {
+  html += `<article class="weekly">`
+  for (const day of data.days) {
     html += `
-    <p>${c.name || '-'}</p>
-    <p>${c.diets || '-'}</p>
-    </div>
+    <p><strong>${day.date}</strong></p>
+    <br>
+    `
+    for (const course of day.courses) {
+      html += `
+    <p>${course.name}</p>
+    <p>${course.price}</p>
+    <br>
     `
     }
-} return html;
+    html += `</article>`
+  }
+  console.log('viikon menu ' + html)
+  return html;
+  }
+
+const generateWeekly = (weeklyMenu) => {
+  modal.close(modal)
+  modal.innerHTML = '';
+  modal.showModal();
+  const nameH3 = document.createElement('h3')
+  nameH3.innerText = 'Weeks menu'
+  modal.insertAdjacentHTML('beforeend', weeklyMenu)
   }
 
 const generateMenu = async () => {
@@ -107,11 +114,11 @@ const generateMenu = async () => {
       modal.append(nameH3);
 
       const dMenu = await getDailyMenu(restaurant._id, 'fi');
-      const dailyMenu = menuHTML(dMenu.courses, restaurant._id);
-      const wMenu = await getWeeklyMenu(restaurant._id,'fi')
-      const weeklyMenu = weeklyHTML(wMenu.day, wMenu.courses)
+      const wMenu = await getWeeklyMenu(restaurant._id, 'fi');
+      const weeklyMenu = weeklyHTML(wMenu);
+      const dailyMenu = menuHTML(dMenu.courses, weeklyMenu);
+
       modal.insertAdjacentHTML('beforeend', restaurant.address + ', ' + restaurant.city + dailyMenu + weeklyMenu)
-      console.log(getWeeklyMenu(restaurant._id, 'fi'))
     });
 
     const nameTd = document.createElement('td');
