@@ -9,68 +9,19 @@ function saveUsers(users) {
   localStorage.setItem("users", JSON.stringify(users));
 }
 
-
-function setCurrentUser(user) {
-  localStorage.setItem("currentUser", JSON.stringify(user));
-}
-
-//current user
-export function getCurrentUser() {
-  const raw = localStorage.getItem("currentUser");
-  return raw ? JSON.parse(raw) : null;
-}
-
 //account registration
 export function handleRegister() {
-  const usernameInput = document.getElementById("registerUsername");
-  const passwordInput = document.getElementById("registerPassword");
-
-  const username = usernameInput.value.trim();
-  const password = passwordInput.value.trim();
-
-  if (!username || !password) {
-    alert("Please fill in all fields");
-    return;
-  }
+  const usernameIn = document.getElementById("username");
+  const passwordIn = document.getElementById("password");
 
   const users = loadUsers();
-  //Check if username exists
-  if (users.find((u) => u.username === username)) {
-    alert("Username already exists");
-    return;
-  }
 
-  users.push({ username, password });
+  users.push({ usernameIn, passwordIn });
   saveUsers(users);
 
-  alert("Registration successful. You can now log in.");
-  usernameInput.value = "";
-  passwordInput.value = "";
+  alert("Account created");
+
+  usernameIn.value = "";
+  passwordIn.value = "";
 }
 
-//Function to handle logging in
-export function handleLogin(onSuccess) {
-  const usernameInput = document.getElementById("loginUsername");
-  const passwordInput = document.getElementById("loginPassword");
-
-  const username = usernameInput.value.trim();
-  const password = passwordInput.value.trim();
-
-  if (!username || !password) {
-    alert("Please fill in all fields");
-    return;
-  }
-
-  const users = loadUsers();
-  const user = users.find(
-    (u) => u.username === username && u.password === password,
-  );
-
-  if (!user) {
-    alert("Invalid username or password");
-    return;
-  }
-
-  setCurrentUser(user);
-  if (typeof onSuccess === "function") onSuccess(user);
-}

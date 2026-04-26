@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" name="viewport" content="with=device-width, initial-scale=1.0">
   <title>Restaurant app</title>
-  <script src="../page.js" defer></script>
+  <script src="../auth/auth.js" defer></script>
   <link rel="stylesheet" href="../page.css">
 
 </head>
@@ -27,15 +27,15 @@
     <h1>Create a new account</h1>
     <form method="post">
       <label for="username">Username</label>
-      <input type="text" id="username" name="username" />
+      <input type="text" id="username" name="username" required/>
       <label for="password">Password</label>
-      <input type="password" id="password" name="password">
+      <input type="password" id="password" name="password" required>
       <label>
         <input type="checkbox" id="terms" name="terms" required/>
         I agree to the terms and conditions
       </label>
       <br>
-      <button type="submit">Register</button>
+      <button type="submit" onclick="handleRegister()">Register</button>
 
     </form>
 

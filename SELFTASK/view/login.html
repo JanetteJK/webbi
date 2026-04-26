@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" name="viewport" content="with=device-width, initial-scale=1.0">
   <title>Restaurant app</title>
-  <script src="../page.js" defer></script>
+  <script src="../auth/auth.js" defer></script>
   <link rel="stylesheet" href="../page.css">
 
 </head>
@@ -26,10 +26,10 @@
   <div class="text-box" id="box">
     <h1>Login</h1>
     <form method="post">
-      <label for="username">Username</label>
-      <input type="text" id="username" name="username" />
-      <label for="password">Password</label>
-      <input type="password" id="password" name="password">
+      <label for="usernameLog">Username</label>
+      <input type="text" id="usernameLog" name="username" required />
+      <label for="passwordLog">Password</label>
+      <input type="password" id="passwordLog" name="password" required>
       <br>
       <button type="submit">Submit</button>
 
